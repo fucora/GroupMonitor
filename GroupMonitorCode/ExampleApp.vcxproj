@@ -51,12 +51,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>app</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <IncludePath>$(SolutionDir)../inculde;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)全部生成</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>app</TargetName>
-    <OutDir>$(SolutionDir)生成文件/app</OutDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>$(SolutionDir)全部生成</OutDir>
     <IncludePath>$(SolutionDir)../inculde;$(IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -68,6 +69,10 @@
     <PostBuildEvent>
       <Command>copy "app.json" "$(OutDir)app.json"</Command>
     </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -87,6 +92,10 @@
     <PostBuildEvent>
       <Command>copy "app.json" "$(OutDir)app.json"</Command>
     </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\appmain.cpp" />

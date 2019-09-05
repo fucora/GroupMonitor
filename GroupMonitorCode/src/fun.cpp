@@ -358,7 +358,7 @@ int Private::instruct(const char* msg)
 			"\n**其他类(自定义需加前缀)**\n"
 			"[CQ:emoji,id=127380]回复群+QQ群号\n"
 			"[CQ:emoji,id=127380]回复+QQ号\n"
-			"[CQ:emoji,id=127380]退出群+QQ群号\n"
+			//"[CQ:emoji,id=127380]退出群+QQ群号\n"
 			"请发送功能名称（不包括表情）";
 		CQ::sendPrivateMsg(fromQQ, menu);
 		x = 0;
@@ -490,21 +490,20 @@ int Private::instruct(const char* msg)
 		CQ::sendPrivateMsg(fromQQ, "请发送准备删除的关键词");
 		x = 8;
 	}
-	else if (std::string(msg).find(cfg_main.Prefix + "退出群") != string::npos)
-	{
-		int64_t GroupNum = atoll(msg + std::string(cfg_main.Prefix + "退出群").length());
-		if (GroupNum != 0)
-		{
-			CQ::setGroupLeave(GroupNum);
-			CQ::sendPrivateMsg(fromQQ, ("已退出群" + std::to_string(GroupNum)).c_str());
-		}
-		else
-		{
-			CQ::sendPrivateMsg(fromQQ, "输入有误，请发送 退出群+QQ群号");
-		}
-
-		x = 0;
-	}
+	//else if (std::string(msg).find(cfg_main.Prefix + "退出群") != string::npos)
+	//{
+	//	int64_t GroupNum = atoll(msg + std::string(cfg_main.Prefix + "退出群").length());
+	//	if (GroupNum != 0)
+	//	{
+	//		CQ::setGroupLeave(GroupNum);
+	//		CQ::sendPrivateMsg(fromQQ, ("已退出群" + std::to_string(GroupNum)).c_str());
+	//	}
+	//	else
+	//	{
+	//		CQ::sendPrivateMsg(fromQQ, "输入有误，请发送 退出群+QQ群号");
+	//	}
+	//	x = 0;
+	//}
 	else if (std::string(msg).find(cfg_main.Prefix + "回复") != string::npos)
 	{
 		ReplyQQ = atoll(msg + std::string(cfg_main.Prefix + "回复").length());
@@ -1048,6 +1047,13 @@ EVE_Menu(__menu)
 	if (!Read_ini())
 	{
 		MessageBox(NULL, TEXT("严重异常 文件读取失败\n请联系QQ群：839067703 求助"), TEXT("严重异常"), MB_OK);
+	}
+	else
+	{
+		for (long long root : cfg_main.root)
+		{
+			CQ::sendPrivateMsg(root, "《群关键词监控》配置已生效");
+		}
 	}
 
 	return 0;

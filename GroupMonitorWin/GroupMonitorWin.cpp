@@ -7,6 +7,7 @@
 #include "WMain.h"
 
 #include <string>
+#include <thread>
 
 using namespace std;
 

@@ -5,7 +5,7 @@
   "ret": 1, // 返回码，固定为1
   "apiver": 9, // Api版本，本SDK为9
   "name": "群关键词监控", // 应用名称
-  "version": "2.0.0 beta2", // 应用版本
+  "version": "2.0.0", // 应用版本
   "version_id": 13, // 应用顺序版本（每次发布时至少+1）
   "author": "小小哥", // 应用作者
   "description": "发送 群监控菜单 查看本插件命令\t\t\t\t\t\t\t欢迎加入插件内测群:839067703\t\t进群优先体验新功能", //一句话描述插件用途
@@ -89,16 +89,16 @@
     120, //置群员移除			setGroupKick
     121, //置群员禁言			setGroupBan
     //    122, //置群管理员			setGroupAdmin
-    123, //置全群禁言			setGroupWholeBan
+    //123, //置全群禁言			setGroupWholeBan
     124, //置匿名群员禁言		setGroupAnonymousBan
     //    125, //置群匿名设置		setGroupAnonymous
     //    126, //置群成员名片		setGroupCard
-    127, //[敏感]置群退出		setGroupLeave
+    //127, //[敏感]置群退出		setGroupLeave
     //    128, //置群成员专属头衔	setGroupSpecialTitle
     130, //取群成员信息		getGroupMemberInfoV2 / getGroupMemberInfo
     131, //取陌生人信息		getStrangerInfo
     //140, //置讨论组退出		setDiscussLeave
-    150, //置好友添加请求		setFriendAddRequest
+    //150, //置好友添加请求		setFriendAddRequest
     151, //置群添加请求		setGroupAddRequest
     160, //取群成员列表		getGroupMemberList
     161, //取群列表			getGroupList
